@@ -116,7 +116,15 @@ public class CustomerSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSSNActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+
+//        If customer is found
+//        
+//        CustomerMain newFrame = new CustomerMain();
+//        newFrame.setVisible(true);
+//        this.setVisible(false);
+        
+        
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void lblAccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAccountNumberActionPerformed
