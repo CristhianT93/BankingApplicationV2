@@ -105,7 +105,7 @@ public class BankingAppUI extends javax.swing.JFrame {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection("jdbc:sqlserver://oop-java.database.windows.net:1433;databaseName=Banking Database", "TeamRocket", "Giovanni3");
-            String query = "select * from Employee where username=? and password=?";
+            String query = "select * from db_accessadmin.Employee where username=? and password=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, txtUsername.getText());
             ps.setString(2, txtPassword.getText());

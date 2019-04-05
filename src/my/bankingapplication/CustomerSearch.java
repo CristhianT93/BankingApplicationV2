@@ -5,6 +5,12 @@
  */
 package my.bankingapplication;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cstol
@@ -29,8 +35,8 @@ public class CustomerSearch extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         btnSearch = new javax.swing.JButton();
-        lblAccountNumber = new javax.swing.JTextField();
-        lblSSN = new javax.swing.JTextField();
+        txtAccountNumber = new javax.swing.JTextField();
+        txtSSN = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -46,15 +52,15 @@ public class CustomerSearch extends javax.swing.JFrame {
             }
         });
 
-        lblAccountNumber.addActionListener(new java.awt.event.ActionListener() {
+        txtAccountNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblAccountNumberActionPerformed(evt);
+                txtAccountNumberActionPerformed(evt);
             }
         });
 
-        lblSSN.addActionListener(new java.awt.event.ActionListener() {
+        txtSSN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblSSNActionPerformed(evt);
+                txtSSNActionPerformed(evt);
             }
         });
 
@@ -82,8 +88,8 @@ public class CustomerSearch extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSSN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAccountNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtSSN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAccountNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(155, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(225, 225, 225)
@@ -98,11 +104,11 @@ public class CustomerSearch extends javax.swing.JFrame {
                 .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(lblAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(lblSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(121, 121, 121)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(347, 347, 347))
@@ -111,9 +117,9 @@ public class CustomerSearch extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblSSNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSSNActionPerformed
+    private void txtSSNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSSNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblSSNActionPerformed
+    }//GEN-LAST:event_txtSSNActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
@@ -124,12 +130,38 @@ public class CustomerSearch extends javax.swing.JFrame {
 //        this.setVisible(false);
         
         
+  try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection con = DriverManager.getConnection("jdbc:sqlserver://oop-java.database.windows.net:1433;databaseName=Banking Database", "TeamRocket", "Giovanni3");
+            //String query1 = "select * from db_accessadmin.Customer where AccountNumber=?";
+            String query2 = "select * from db_accessadmin.Customer where SSN=?";
+            //PreparedStatement ps1 = con.prepareStatement(query1);
+            PreparedStatement ps2 = con.prepareStatement(query2);
+            //ps.setString(1, txtAccountNumber.getText());
+            ps2.setString(1, txtSSN.getText());
+            //ResultSet rs1 = ps1.executeQuery();
+            ps2.setString(1, txtSSN.getText());
+            ResultSet rs2 = ps2.executeQuery();
+            if(rs2.next()){
+                JOptionPane.showMessageDialog(null, "YES");
+                CustomerSearch newFrame = new CustomerSearch();
+                newFrame.setVisible(true);
+                this.setVisible(false);
+
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "NO");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
         
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void lblAccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblAccountNumberActionPerformed
+    private void txtAccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblAccountNumberActionPerformed
+    }//GEN-LAST:event_txtAccountNumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,7 +205,7 @@ public class CustomerSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JTextField lblAccountNumber;
-    private javax.swing.JTextField lblSSN;
+    private javax.swing.JTextField txtAccountNumber;
+    private javax.swing.JTextField txtSSN;
     // End of variables declaration//GEN-END:variables
 }
