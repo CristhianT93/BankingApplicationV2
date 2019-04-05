@@ -48,8 +48,8 @@
                       </Group>
                       <EmptySpace pref="69" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblSSN" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
-                          <Component id="lblAccountNumber" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
+                          <Component id="txtSSN" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
+                          <Component id="txtAccountNumber" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -70,12 +70,12 @@
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSSN" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSSN" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
               <Component id="btnSearch" min="-2" pref="55" max="-2" attributes="0"/>
@@ -93,14 +93,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="lblAccountNumber">
+    <Component class="javax.swing.JTextField" name="txtAccountNumber">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblAccountNumberActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAccountNumberActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="lblSSN">
+    <Component class="javax.swing.JTextField" name="txtSSN">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblSSNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSSNActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
