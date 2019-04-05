@@ -122,14 +122,9 @@ public class CustomerSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSSNActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        
 
-//        If customer is found
-//        
-//        CustomerMain newFrame = new CustomerMain();
-//        newFrame.setVisible(true);
-//        this.setVisible(false);
-        
-        
+
   try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection("jdbc:sqlserver://oop-java.database.windows.net:1433;databaseName=Banking Database", "TeamRocket", "Giovanni3");
@@ -156,7 +151,7 @@ public class CustomerSearch extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
 
-        
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtAccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountNumberActionPerformed
@@ -170,7 +165,7 @@ public class CustomerSearch extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
