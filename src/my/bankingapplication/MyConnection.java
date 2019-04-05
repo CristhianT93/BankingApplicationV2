@@ -17,7 +17,7 @@ public class MyConnection {
             
             st = con.createStatement();
             
-            rs = st.executeQuery("select * from Employee");
+            rs = st.executeQuery("select * from db_accessadmin.Employee");
             
             while (rs.next()) {
                 System.out.println(rs.getString("username") + " " + rs.getString("password"));
