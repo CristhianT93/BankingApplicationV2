@@ -3,6 +3,7 @@
   <persistence-unit name="BankingApplicationV2PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>my.bankingapplication.Customer</class>
+    <class>my.bankingapplication.Employee</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://oop-java.database.windows.net:1433;databaseName=Banking Database"/>
       <property name="javax.persistence.jdbc.user" value="TeamRocket"/>

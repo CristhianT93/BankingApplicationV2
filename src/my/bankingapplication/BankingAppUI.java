@@ -4,10 +4,14 @@
  * and open the template in the editor.
  */
 package my.bankingapplication;
-/**
- *
- * @author cstol
- */
+import com.sun.istack.internal.logging.Logger;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Level;
+import javax.swing.JOptionPane;
+import sun.util.logging.PlatformLogger;
+import my.bankingapplication.MyConnection;
+
 public class BankingAppUI extends javax.swing.JFrame {
 
     /**
@@ -98,13 +102,29 @@ public class BankingAppUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection con = DriverManager.getConnection("jdbc:sqlserver://oop-java.database.windows.net:1433;databaseName=Banking Database", "TeamRocket", "Giovanni3");
+            String query = "select * from Employee where username=? and password=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, txtUsername.getText());
+            ps.setString(2, txtPassword.getText());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "YES");
+                CustomerSearch newFrame = new CustomerSearch();
+                newFrame.setVisible(true);
+                this.setVisible(false);
 
-
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "NO");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
         //(if login is valid
 
-        CustomerSearch newFrame = new CustomerSearch();
-        newFrame.setVisible(true);
-        this.setVisible(false);
 
 
     }//GEN-LAST:event_btnOKActionPerformed
@@ -152,4 +172,12 @@ public class BankingAppUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private PreparedStatement createPreparedStatement(Connection con, String username, String password) throws SQLException {
+        String query = "SELECT * FROM 'Employee' WHERE 'username' =? AND 'password' =?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, username);
+        ps.setString(2, password);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
