@@ -40,7 +40,9 @@ public class BankingAppUI extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        btnOK.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnOK.setText("OK");
         btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,40 +50,45 @@ public class BankingAppUI extends javax.swing.JFrame {
             }
         });
 
+        lblPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblPassword.setText("Password");
 
+        lblUsername.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lblUsername.setText("Username");
 
+        txtUsername.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnOK))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
                             .addComponent(lblPassword))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                            .addComponent(txtPassword))))
-                .addGap(89, 89, 89))
+                            .addComponent(txtUsername)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(132, 132, 132))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsername)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -91,7 +98,7 @@ public class BankingAppUI extends javax.swing.JFrame {
                     .addComponent(lblPassword))
                 .addGap(52, 52, 52)
                 .addComponent(btnOK)
-                .addGap(330, 330, 330))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,14 +120,14 @@ public class BankingAppUI extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "YES");
+                JOptionPane.showMessageDialog(null, "Yes");
                 CustomerSearch newFrame = new CustomerSearch();
                 newFrame.setVisible(true);
                 this.setVisible(false);
 
             }
             else {
-                JOptionPane.showMessageDialog(null, "NO");
+                JOptionPane.showMessageDialog(null, "No");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
