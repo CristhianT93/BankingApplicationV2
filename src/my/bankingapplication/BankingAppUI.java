@@ -113,7 +113,7 @@ public class BankingAppUI extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "YES");
+                //JOptionPane.showMessageDialog(null, "YES");
                 CustomerSearch newFrame = new CustomerSearch();
                 newFrame.setVisible(true);
                 this.setVisible(false);
